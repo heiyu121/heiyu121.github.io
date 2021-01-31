@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/contents/ckkl40t9h000110tu2skbha75.html</url>
+    <url>/contents/ckkl5bfxm0001zgtucthu862s.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -16,11 +16,47 @@
   </entry>
   <entry>
     <title>test_my_site</title>
-    <url>/contents/ckkl40t9k000310tudz255g1a.html</url>
+    <url>/contents/ckkl5bfxo0003zgtu4hs54lcb.html</url>
     <content><![CDATA[<p>烦烦烦<a href="https://zhuanlan.zhihu.com/p/106060640">https://zhuanlan.zhihu.com/p/106060640</a></p>
 ]]></content>
+      <categories>
+        <category>其它</category>
+      </categories>
       <tags>
-        <tag>categories</tag>
+        <tag>实验</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>nginx文件管理器+添加Nginx认证服务</title>
+    <url>/contents/ckkl5bfxq0005zgtud2fi592u.html</url>
+    <content><![CDATA[<h2 id="配置nginx文件管理器-添加Nginx认证服务"><a href="#配置nginx文件管理器-添加Nginx认证服务" class="headerlink" title="配置nginx文件管理器+添加Nginx认证服务"></a>配置nginx文件管理器+添加Nginx认证服务</h2><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h3 id="配置nginx文件"><a href="#配置nginx文件" class="headerlink" title="配置nginx文件"></a>配置nginx文件</h3><p>再home目录下创建test文件夹</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir test</span><br></pre></td></tr></table></figure>
+<p>创建nginx配置文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/file_server.conf</span><br></pre></td></tr></table></figure>
+<p>配置文件如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  自己服务器IP; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间 </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重新加载nginx服务器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
+<p>访问：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http:自己服务器IP</span><br></pre></td></tr></table></figure>
+<h3 id="添加nginx认证服务"><a href="#添加nginx认证服务" class="headerlink" title="添加nginx认证服务"></a>添加nginx认证服务</h3><h4 id="安装Apache工具"><a href="#安装Apache工具" class="headerlink" title="安装Apache工具"></a>安装Apache工具</h4><p>需要使用htpasswd命令创建具有加密登录详细信息的.htpasswd。 所以安装apache工具来获取系统上的htpasswd命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install apache2-utils</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">$ yum install httpd-tools</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建凭据文件"><a href="#创建凭据文件" class="headerlink" title="创建凭据文件"></a>创建凭据文件</h4><p>需要创建一个空的/etc/nginx/.htpasswd文件。您还可以使用htpasswd命令中的-c。但是，这将覆盖现有文件，您可能会意外覆盖现有文件，同时添加更多用户。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch /etc/nginx/.htpasswd</span><br></pre></td></tr></table></figure>
+<p>开始使用htpasswd命令添加新用户</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">htpasswd -m /etc/nginx/.htpasswd user</span><br><span class="line"></span><br><span class="line">-m用于创建md5加密密码。</span><br></pre></td></tr></table></figure>
+<h4 id="编辑Nginx配置"><a href="#编辑Nginx配置" class="headerlink" title="编辑Nginx配置"></a>编辑Nginx配置</h4><p>编辑服务器块的Nginx配置文件。在需要验证的服务器块中添加以下条目。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  172.93.189.42; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">  auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间</span><br><span class="line">    auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">    auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="重新加载Nginx服务器"><a href="#重新加载Nginx服务器" class="headerlink" title="重新加载Nginx服务器"></a>重新加载Nginx服务器</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>nginx</category>
+      </categories>
+      <tags>
+        <tag>nginx</tag>
       </tags>
   </entry>
 </search>

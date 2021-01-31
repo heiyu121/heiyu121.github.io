@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-28T01:52:52.893Z</updated>
+  <updated>2021-01-31T12:52:56.766Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,32 +17,51 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>nginx文件管理器+添加Nginx认证服务</title>
+    <link href="http://example.com/contents/ckkl5bfxq0005zgtud2fi592u.html"/>
+    <id>http://example.com/contents/ckkl5bfxq0005zgtud2fi592u.html</id>
+    <published>2021-01-31T12:51:30.000Z</published>
+    <updated>2021-01-31T12:52:56.766Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="配置nginx文件管理器-添加Nginx认证服务"><a href="#配置nginx文件管理器-添加Nginx认证服务" class="headerlink" title="配置nginx文件管理器+添加Nginx认证服务"></a>配置nginx文件管理器+添加Nginx认证服务</h2><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure><a id="more"></a><h3 id="配置nginx文件"><a href="#配置nginx文件" class="headerlink" title="配置nginx文件"></a>配置nginx文件</h3><p>再home目录下创建test文件夹</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir test</span><br></pre></td></tr></table></figure><p>创建nginx配置文件</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/file_server.conf</span><br></pre></td></tr></table></figure><p>配置文件如下：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  自己服务器IP; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间 </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><p>重新加载nginx服务器：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure><p>访问：</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">http:自己服务器IP</span><br></pre></td></tr></table></figure><h3 id="添加nginx认证服务"><a href="#添加nginx认证服务" class="headerlink" title="添加nginx认证服务"></a>添加nginx认证服务</h3><h4 id="安装Apache工具"><a href="#安装Apache工具" class="headerlink" title="安装Apache工具"></a>安装Apache工具</h4><p>需要使用htpasswd命令创建具有加密登录详细信息的.htpasswd。 所以安装apache工具来获取系统上的htpasswd命令</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install apache2-utils</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">$ yum install httpd-tools</span></span><br></pre></td></tr></table></figure><h4 id="创建凭据文件"><a href="#创建凭据文件" class="headerlink" title="创建凭据文件"></a>创建凭据文件</h4><p>需要创建一个空的/etc/nginx/.htpasswd文件。您还可以使用htpasswd命令中的-c。但是，这将覆盖现有文件，您可能会意外覆盖现有文件，同时添加更多用户。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/nginx/.htpasswd</span><br></pre></td></tr></table></figure><p>开始使用htpasswd命令添加新用户</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">htpasswd -m /etc/nginx/.htpasswd user</span><br><span class="line"></span><br><span class="line">-m用于创建md5加密密码。</span><br></pre></td></tr></table></figure><h4 id="编辑Nginx配置"><a href="#编辑Nginx配置" class="headerlink" title="编辑Nginx配置"></a>编辑Nginx配置</h4><p>编辑服务器块的Nginx配置文件。在需要验证的服务器块中添加以下条目。</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  172.93.189.42; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">  auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间</span><br><span class="line">    auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">    auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><h4 id="重新加载Nginx服务器"><a href="#重新加载Nginx服务器" class="headerlink" title="重新加载Nginx服务器"></a>重新加载Nginx服务器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+    <summary type="html">&lt;h2 id=&quot;配置nginx文件管理器-添加Nginx认证服务&quot;&gt;&lt;a href=&quot;#配置nginx文件管理器-添加Nginx认证服务&quot; class=&quot;headerlink&quot; title=&quot;配置nginx文件管理器+添加Nginx认证服务&quot;&gt;&lt;/a&gt;配置nginx文件管理器+添加Nginx认证服务&lt;/h2&gt;&lt;h3 id=&quot;安装nginx&quot;&gt;&lt;a href=&quot;#安装nginx&quot; class=&quot;headerlink&quot; title=&quot;安装nginx&quot;&gt;&lt;/a&gt;安装nginx&lt;/h3&gt;&lt;figure class=&quot;highlight shell&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;1&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;span class=&quot;line&quot;&gt;apt-get install nginx&lt;/span&gt;&lt;br&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;</summary>
+    
+    
+    
+    <category term="nginx" scheme="http://example.com/categories/nginx/"/>
+    
+    
+    <category term="nginx" scheme="http://example.com/tags/nginx/"/>
+    
+  </entry>
+  
+  <entry>
     <title>test_my_site</title>
-    <link href="http://example.com/contents/ckkl40t9k000310tudz255g1a.html"/>
-    <id>http://example.com/contents/ckkl40t9k000310tudz255g1a.html</id>
+    <link href="http://example.com/contents/ckkl5bfxo0003zgtu4hs54lcb.html"/>
+    <id>http://example.com/contents/ckkl5bfxo0003zgtu4hs54lcb.html</id>
     <published>2021-01-27T11:48:33.000Z</published>
-    <updated>2021-01-28T01:52:52.893Z</updated>
+    <updated>2021-01-31T12:46:06.656Z</updated>
     
     <content type="html"><![CDATA[<p>烦烦烦<a href="https://zhuanlan.zhihu.com/p/106060640">https://zhuanlan.zhihu.com/p/106060640</a></p>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;p&gt;烦烦烦&lt;a href=&quot;https://zhuanlan.zhihu.com/p/106060640&quot;&gt;https://zhuanlan.zhihu.com/p/106060640&lt;/a&gt;&lt;/p&gt;
-</summary>
-      
+    <summary type="html">这是显示在首页的概述，正文内容均会被隐藏。</summary>
     
     
     
+    <category term="其它" scheme="http://example.com/categories/%E5%85%B6%E5%AE%83/"/>
     
-    <category term="categories" scheme="http://example.com/tags/categories/"/>
+    
+    <category term="实验" scheme="http://example.com/tags/%E5%AE%9E%E9%AA%8C/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/contents/ckkl40t9h000110tu2skbha75.html"/>
-    <id>http://example.com/contents/ckkl40t9h000110tu2skbha75.html</id>
+    <link href="http://example.com/contents/ckkl5bfxm0001zgtucthu862s.html"/>
+    <id>http://example.com/contents/ckkl5bfxm0001zgtucthu862s.html</id>
     <published>2021-01-27T09:38:49.469Z</published>
     <updated>2021-01-27T09:38:49.469Z</updated>
     
