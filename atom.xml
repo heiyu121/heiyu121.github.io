@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-31T13:07:58.236Z</updated>
+  <updated>2021-01-31T13:09:21.586Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -18,18 +18,15 @@
   
   <entry>
     <title>ubuntu16.04升级gcc和g++</title>
-    <link href="http://example.com/contents/ckkl5tf8d0005tktu2uehhw93.html"/>
-    <id>http://example.com/contents/ckkl5tf8d0005tktu2uehhw93.html</id>
+    <link href="http://example.com/contents/ckkl5vm5g0005bctu12cm41fm.html"/>
+    <id>http://example.com/contents/ckkl5vm5g0005bctu12cm41fm.html</id>
     <published>2021-01-31T13:07:10.000Z</published>
-    <updated>2021-01-31T13:07:58.236Z</updated>
+    <updated>2021-01-31T13:09:21.586Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加ppa到库</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gcc-7</span><br><span class="line">sudo apt-get install g++-7</span><br></pre></td></tr></table></figure><h4 id="配置默认选项"><a href="#配置默认选项" class="headerlink" title="配置默认选项"></a>配置默认选项</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100</span><br><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure><h4 id="查看已安装的版本信息"><a href="#查看已安装的版本信息" class="headerlink" title="查看已安装的版本信息"></a>查看已安装的版本信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p><a id="more"></a><h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加ppa到库</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gcc-7</span><br><span class="line">sudo apt-get install g++-7</span><br></pre></td></tr></table></figure><h4 id="配置默认选项"><a href="#配置默认选项" class="headerlink" title="配置默认选项"></a>配置默认选项</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100</span><br><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure><h4 id="查看已安装的版本信息"><a href="#查看已安装的版本信息" class="headerlink" title="查看已安装的版本信息"></a>查看已安装的版本信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>]]></content>
     
     
-      
-      
-    <summary type="html">&lt;h1 id=&quot;ubuntu16-04升级gcc和g&quot;&gt;&lt;a href=&quot;#ubuntu16-04升级gcc和g&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04升级gcc和g++&quot;&gt;&lt;/a&gt;ubuntu16.04升级gcc和g++&lt;/h1&gt;&lt;p&gt;因为</summary>
-      
+    <summary type="html">&lt;h1 id=&quot;ubuntu16-04升级gcc和g&quot;&gt;&lt;a href=&quot;#ubuntu16-04升级gcc和g&quot; class=&quot;headerlink&quot; title=&quot;ubuntu16.04升级gcc和g++&quot;&gt;&lt;/a&gt;ubuntu16.04升级gcc和g++&lt;/h1&gt;&lt;p&gt;因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下&lt;/p&gt;</summary>
     
     
     
@@ -42,8 +39,8 @@
   
   <entry>
     <title>nginx文件管理器+添加Nginx认证服务</title>
-    <link href="http://example.com/contents/ckkl5tf8h000ftktuc98u5j8u.html"/>
-    <id>http://example.com/contents/ckkl5tf8h000ftktuc98u5j8u.html</id>
+    <link href="http://example.com/contents/ckkl5vm5m000fbctu6fde117r.html"/>
+    <id>http://example.com/contents/ckkl5vm5m000fbctu6fde117r.html</id>
     <published>2021-01-31T12:51:30.000Z</published>
     <updated>2021-01-31T12:52:56.766Z</updated>
     
@@ -63,8 +60,8 @@
   
   <entry>
     <title>test_my_site</title>
-    <link href="http://example.com/contents/ckkl5tf8b0003tktu43a65gac.html"/>
-    <id>http://example.com/contents/ckkl5tf8b0003tktu43a65gac.html</id>
+    <link href="http://example.com/contents/ckkl5vm5e0003bctu1rtu51o3.html"/>
+    <id>http://example.com/contents/ckkl5vm5e0003bctu1rtu51o3.html</id>
     <published>2021-01-27T11:48:33.000Z</published>
     <updated>2021-01-31T12:46:06.656Z</updated>
     
@@ -84,8 +81,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/contents/ckkl5tf880001tktu9l40a5bh.html"/>
-    <id>http://example.com/contents/ckkl5tf880001tktu9l40a5bh.html</id>
+    <link href="http://example.com/contents/ckkl5vm5b0001bctud2vp79o7.html"/>
+    <id>http://example.com/contents/ckkl5vm5b0001bctud2vp79o7.html</id>
     <published>2021-01-27T09:38:49.469Z</published>
     <updated>2021-01-27T09:38:49.469Z</updated>
     
