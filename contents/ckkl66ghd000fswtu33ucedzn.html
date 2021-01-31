@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.3.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="编程器为了兼容性和通用性，很多芯片都预留了JTAG，SW，SPI，UART一类的标准写接口进行程序烧写，或者提供Bootloader让芯片能够通过这些标准接口进行烧写，当然，也有爱好自己开发的，比如经典的Arduino，就是内置了Bootloader，让原本需要通过SPI或者JTAG烧写的AVR单片机能够使用串口UATR烧写程序">
+<meta property="og:type" content="article">
+<meta property="og:title" content="IOT初级学习">
+<meta property="og:url" content="http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html">
+<meta property="og:site_name" content="GitCloud">
+<meta property="og:description" content="编程器为了兼容性和通用性，很多芯片都预留了JTAG，SW，SPI，UART一类的标准写接口进行程序烧写，或者提供Bootloader让芯片能够通过这些标准接口进行烧写，当然，也有爱好自己开发的，比如经典的Arduino，就是内置了Bootloader，让原本需要通过SPI或者JTAG烧写的AVR单片机能够使用串口UATR烧写程序">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201125112847.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201130222217.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201130222514.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201130223433.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201201084950.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201201085335.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201201091632.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201201093458.png">
+<meta property="og:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201201093738.png">
+<meta property="article:published_time" content="2021-01-31T13:13:56.000Z">
+<meta property="article:modified_time" content="2021-01-31T13:17:35.068Z">
+<meta property="article:author" content="GitCloud">
+<meta property="article:tag" content="IOT">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/lutaixue/image/raw/master/img/20201125112847.png">
+
+<link rel="canonical" href="http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'zh-CN'
+  };
+</script>
+
+  <title>IOT初级学习 | GitCloud</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+<link rel="alternate" href="/atom.xml" title="GitCloud" type="application/atom+xml">
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">GitCloud</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+      <p class="site-subtitle" itemprop="description">一门深入,贪心是祸害.</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a>
+
+  </li>
+        <li class="menu-item menu-item-resources">
+
+    <a href="/resources/" rel="section"><i class="fa fa-calendar fa-fw"></i>资源</a>
+
+  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="GitCloud">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GitCloud">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          IOT初级学习
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-31 21:13:56" itemprop="dateCreated datePublished" datetime="2021-01-31T21:13:56+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/IOT/" itemprop="url" rel="index"><span itemprop="name">IOT</span></a>
+                </span>
+            </span>
+
+          
+            <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv" style="display: none;">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span id="busuanzi_value_page_pv"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>3.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>3 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h2 id="编程器"><a href="#编程器" class="headerlink" title="编程器"></a>编程器</h2><p>为了兼容性和通用性，很多芯片都预留了JTAG，SW，SPI，UART一类的标准写接口进行程序烧写，或者提供Bootloader让芯片能够通过这些标准接口进行烧写，当然，也有爱好自己开发的，比如经典的Arduino，就是内置了Bootloader，让原本需要通过SPI或者JTAG烧写的AVR单片机能够使用串口UATR烧写程序</p>
+<a id="more"></a>
+
+<h2 id="硬件常用的接口"><a href="#硬件常用的接口" class="headerlink" title="硬件常用的接口"></a>硬件常用的接口</h2><h3 id="编程器-1"><a href="#编程器-1" class="headerlink" title="编程器"></a>编程器</h3><p>读取Flash芯片，需要借助编程器，编程器又称烧录器、写入器、写码器，是专门用来对 IC 芯片进行读写、编程/烧录的仪器。并口多功能 BIOS 编程器，它可以对 EPROM（27系列芯片）、EEPROM（28系列芯片）、FLASH ROM（29、39、49系列芯片）及单片机、串行芯片等进行读写、编程，是一种性价比较高的编程器。 </p>
+<h3 id="RS232"><a href="#RS232" class="headerlink" title="RS232"></a>RS232</h3><p>通信方式允许简单连接三线：TX，RX和地线，但是对于数据传输，双方必须对数据定时采用相同的波特率</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">X是extended specification的缩写，意思为扩展规范。 英文TX和RX中，TX=传出，RX=接收比如RS232/485/422通讯中，RS232最基本的为三线通讯，一个发送线（Tx），一个接收线（Rx），一个公共线（参考地GND）</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="RS232-1"><a href="#RS232-1" class="headerlink" title="RS232"></a>RS232</h3><p>其实是电平上的区别，RS232的电平通常是+12V和-12v，通过MAX232一类的电平转换芯片，就能转换为0~5V的TTL电平，本质上通信协议标准都是一样的，所以，TTL的Sniffer也是同样的原理</p>
+<h3 id="RS422"><a href="#RS422" class="headerlink" title="RS422"></a>RS422</h3><p>RS-422标准全称是“平衡电业数字接口电路的电气特性”，在RS232后推出，使用TTL差动电平表示逻辑就是两根的电压差表示逻辑，RS422定义为全双工，所以至少要4根通信线（一般额外多一根地线）</p>
+<h3 id="RS485"><a href="#RS485" class="headerlink" title="RS485"></a>RS485</h3><p>RS485是一个定义平衡数字多点系统中的驱动器和接收器的电气特征的标准，RS485与RS422的区别在与RS485位半双工通信方式，RS422位全双工方式，RS422用两对平衡差分信号分别用于发送和接收，所以采用RS422接口通信时最少需要4根线，RS485只用一对平衡差分信号线，不能同时发送和接收，最少只需要两根连线。</p>
+<h3 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a>I2C</h3><p>I2C即inter-integrate circuit（集成电路总线），这种总线类型是由飞利浦半导体公司在八十年代初设计出来的一种简单，双向，二线制，同步串行总线，主要是用来连接整体电路（ICS），IIC是一种多向控制总线，也就是说多个芯片可以连接到同一总线结构下，同时每个芯片都可以作为实时数据传输的控制源，这种方式简化了信号传输总线接口。</p>
+<h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><p>spi是串行外设接口（serial peripheral interface）的缩写，spi是一种高速的，全双工，同步的通信总线，并且在芯片的管脚上只占用四根线，节约了芯片的管脚，同时为PCB的布局上节省空间，提供方便，正式出于这种简单易用的特征，如今越来越多的芯片集成了这种通信协议，比如AT91RM9200</p>
+<h3 id="CAN"><a href="#CAN" class="headerlink" title="CAN"></a>CAN</h3><h3 id="ModBus"><a href="#ModBus" class="headerlink" title="ModBus"></a>ModBus</h3><h3 id="ProFiBus"><a href="#ProFiBus" class="headerlink" title="ProFiBus"></a>ProFiBus</h3><h3 id="RJ45"><a href="#RJ45" class="headerlink" title="RJ45"></a>RJ45</h3><h3 id="硬件分析"><a href="#硬件分析" class="headerlink" title="硬件分析"></a>硬件分析</h3><h3 id="eeprom和flash的区别"><a href="#eeprom和flash的区别" class="headerlink" title="eeprom和flash的区别"></a>eeprom和flash的区别</h3><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/27621418">https://zhuanlan.zhihu.com/p/27621418</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>如何自建IoT实验室（一）<a target="_blank" rel="noopener" href="https://www.white-alone.com/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BB%BAIoT%E5%AE%9E%E9%AA%8C%E5%AE%A4_1/">https://www.white-alone.com/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BB%BAIoT%E5%AE%9E%E9%AA%8C%E5%AE%A4_1/</a></p>
+<p>IOT 安全资料整合（主要是路由器）<a target="_blank" rel="noopener" href="https://www.cnblogs.com/H4lo/p/11721932.html">https://www.cnblogs.com/H4lo/p/11721932.html</a></p>
+<p>路由器固件提取分析<a target="_blank" rel="noopener" href="https://www.mdeditor.tw/pl/pmzR">https://www.mdeditor.tw/pl/pmzR</a></p>
+<p>Dlink路由器固件-qemu调试环境搭建<a target="_blank" rel="noopener" href="https://xz.aliyun.com/t/462">https://xz.aliyun.com/t/462</a></p>
+<h2 id="复现文章"><a href="#复现文章" class="headerlink" title="复现文章"></a>复现文章</h2><h3 id="制作摄像头恶意固件"><a href="#制作摄像头恶意固件" class="headerlink" title="制作摄像头恶意固件"></a>制作摄像头恶意固件</h3><p>该固件是wyze摄像头固件，固件版本是demo_v2_4.9.5.36</p>
+<p>首先使用binwalk分析一下固件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk -t demo_v2_4.9.5.36.bin</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201125112847.png" alt="image-20201125112847314"></p>
+<p>第一部分uimage中，告诉了我们很多基础信息</p>
+<p>第二部分uimage中，可以发现内涵位Linux-3.10.14</p>
+<p>第三部分是两个squashfs文件系统（该文件系统属性是只读）</p>
+<p>第四部分是一个jffs2文件系统</p>
+<p>一般我们用常规的binwalk提取的方法如：<strong>binwalk -e</strong>，提取的文件不方便打包，所以可以用一个脚步来提取文件</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">class Firmwarepart:</span><br><span class="line">    def __init__(self,name,offset,size):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.offset = offset</span><br><span class="line">        self.size = size</span><br><span class="line"></span><br><span class="line">firmware_parts = [</span><br><span class="line">    Firmwarepart(&quot;uimage_header&quot;,0x0,0x40),</span><br><span class="line">    Firmwarepart(&quot;uimage_kernel&quot;,0x40,0x200000),</span><br><span class="line">    Firmwarepart(&quot;squashfs_1&quot;,0x200040,0x350000),</span><br><span class="line">    Firmwarepart(&quot;squashfs_2&quot;,0x550040,0xa0000),</span><br><span class="line">    Firmwarepart(&quot;jffs2&quot;,0x5F0040,11075648-0x5F0040)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">if sys.argv[1] == &#x27;unpack&#x27;:</span><br><span class="line">    f = open(sys.argv[2],&quot;rb&quot;)</span><br><span class="line">    for part in firmware_parts:</span><br><span class="line">        outfile = open(part.name,&quot;wb&quot;)</span><br><span class="line">        f.seek(part.offset,0)</span><br><span class="line">        data = f.read(part.size)</span><br><span class="line">        outfile.write(data)</span><br><span class="line">        outfile.close()</span><br><span class="line">        print(f&quot;Wrote &#123;part.name&#125; - &#123;hex(len(data))&#125; bytes.&quot;)</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 root_extractor.py unpack demo_v2_4.9.5.36.bin</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201130222217.png" alt="image-20201130222216139"></p>
+<p>对于squashFS文件系统的提取，使用unsquashfs来实现：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">unsquashfs -d squashfs_1_out squashfs_1</span><br><span class="line">unsquashfs -d squashfs_2_out squashfs_2</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201130222514.png" alt="image-20201130222514136"></p>
+<p>对于jff2文件系统的提取，使用jefferson实现：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">jefferson -d jffs2_out jffs2	</span><br></pre></td></tr></table></figure>
+<p>将文件提取完成后，检查所提取文件中的敏感信息</p>
+<p>shadow文件如下</p>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201130223433.png" alt="image-20201130223433537"></p>
+<p>通过john进行爆破出来该root密码</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">john --fork=4 shadow</span><br></pre></td></tr></table></figure>
+<p>当我们知道root密码时，如果开启了ssh服务，我们就可以通过ssh登陆到主机</p>
+<p>这里我们找一下系统启动项：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi etc/init.d/rcs</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201084950.png" alt="image-20201201084949602"></p>
+<p>可以看到系统在启动时是启动了telnet服务，但是实际上telnet服务通过端口扫描发现并未启动</p>
+<p>在解包后的固件里直接搜索</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">grep -r telnet .</span><br><span class="line"></span><br><span class="line">strings ./jffs2_out/fs_1/bin/iCamera | grep telnet</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201085335.png" alt="image-20201201085335445"></p>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201091632.png" alt="image-20201201091632920"></p>
+<p>可以发现在icamera文件里，Telnet服务被禁用掉了</p>
+<p>实际上，在该摄像头里Telnet服务实际上为busybox中的Telnet，我需要找到启动脚本，然后将其修改为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">busybox telnetf &amp;</span><br></pre></td></tr></table></figure>
+<p>该脚本在squashfs_1_out/etc/init.d/rc中</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim squashfs_1_out/etc/init.d/rcS</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201093458.png" alt="image-20201201093458434"></p>
+<p>该完之后这个服务就不会被kill掉了，接下来我们要将这几个文件系统重新打包并生成固件。</p>
+<p>使用unsquashfs查看一下原来的文件系统信息：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">unsquashfs -s squashfs_1</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201093738.png" alt="image-20201201093738795"></p>
+<p>接下来使用mksquashfs命令将更改后的新文件系统打包</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mksquashfs squashfs_1_out/ squashfs_1_new -comp xz -b 131072</span><br></pre></td></tr></table></figure>
+<p>再将之前的程序加上一个打包功能，这样就可以把这个两个squashfs文件系统和jffs文件系统打包起来</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python3 root_extractor.py  pack demo_backdoored.bin</span><br></pre></td></tr></table></figure>
+<p>这样我们仅仅将文件系统打包，至于生成镜像的uImage header部分我们使用其他工具，先使用binwalk    查看一下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk -t uimage_header</span><br></pre></td></tr></table></figure>
+<p>接下来使用mkimage来生成镜像</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkimage -A MIPS -O linux -T firmware -C none -a 0 -e 0 -n jz_fw -d demo_backdoored.bin demo_images.bin</span><br></pre></td></tr></table></figure>
+<p>再用binwalk查看demo_images.bin</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">binwalk -t demo_images.bin</span><br></pre></td></tr></table></figure>
+<p>可以看到我们生成的镜像和之前几乎相同</p>
+<p>将该固件应用于摄像头中我们就可以实现用root账号登录管理摄像通了</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=hV8W4o-Mu2o">https://www.youtube.com/watch?v=hV8W4o-Mu2o</a></p>
+
+    </div>
+
+    
+    
+    
+	
+	 
+	   <div>
+		 <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:24px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+	   </div>
+	
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>GitCloud
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html" title="IOT初级学习">http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/IOT/" rel="tag"># IOT</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/contents/ckkl66ghe000gswtuccgd3h44.html" rel="prev" title="ubuntu16.04升级gcc和g++">
+      <i class="fa fa-chevron-left"></i> ubuntu16.04升级gcc和g++
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/contents/ckkl66ghf000jswtu9z0fbemb.html" rel="next" title="家用路由器0day漏洞__读书笔记">
+      家用路由器0day漏洞__读书笔记 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%99%A8"><span class="nav-number">1.</span> <span class="nav-text">编程器</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%B8%B8%E7%94%A8%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="nav-number">2.</span> <span class="nav-text">硬件常用的接口</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BC%96%E7%A8%8B%E5%99%A8-1"><span class="nav-number">2.1.</span> <span class="nav-text">编程器</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RS232"><span class="nav-number">2.2.</span> <span class="nav-text">RS232</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RS232-1"><span class="nav-number">2.3.</span> <span class="nav-text">RS232</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RS422"><span class="nav-number">2.4.</span> <span class="nav-text">RS422</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RS485"><span class="nav-number">2.5.</span> <span class="nav-text">RS485</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#I2C"><span class="nav-number">2.6.</span> <span class="nav-text">I2C</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#SPI"><span class="nav-number">2.7.</span> <span class="nav-text">SPI</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#CAN"><span class="nav-number">2.8.</span> <span class="nav-text">CAN</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ModBus"><span class="nav-number">2.9.</span> <span class="nav-text">ModBus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ProFiBus"><span class="nav-number">2.10.</span> <span class="nav-text">ProFiBus</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RJ45"><span class="nav-number">2.11.</span> <span class="nav-text">RJ45</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%A1%AC%E4%BB%B6%E5%88%86%E6%9E%90"><span class="nav-number">2.12.</span> <span class="nav-text">硬件分析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#eeprom%E5%92%8Cflash%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">2.13.</span> <span class="nav-text">eeprom和flash的区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%AB%A0"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E7%8E%B0%E6%96%87%E7%AB%A0"><span class="nav-number">4.</span> <span class="nav-text">复现文章</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%88%B6%E4%BD%9C%E6%91%84%E5%83%8F%E5%A4%B4%E6%81%B6%E6%84%8F%E5%9B%BA%E4%BB%B6"><span class="nav-number">4.1.</span> <span class="nav-text">制作摄像头恶意固件</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#%E5%8F%82%E8%80%83"><span class="nav-number">4.1.0.1.</span> <span class="nav-text">参考</span></a></li></ol></li></ol></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="GitCloud"
+      src="/images/touxiang.jpg">
+  <p class="site-author-name" itemprop="name">GitCloud</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+
+
+  <div class="links-of-blogroll motion-element">
+    <div class="links-of-blogroll-title"><i class="fa fa-link fa-fw"></i>
+      Links
+    </div>
+    <ul class="links-of-blogroll-list">
+        <li class="links-of-blogroll-item">
+          <a href="https://www.oschina.net/" title="https:&#x2F;&#x2F;www.oschina.net&#x2F;" rel="noopener" target="_blank">开源中国</a>
+        </li>
+    </ul>
+  </div>
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 2021-01 – 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">GitCloud</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://pisces.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
+  </div>
+
+
+    <script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+    <span id="busuanzi_container_site_pv">总访问量<span id="busuanzi_value_site_pv"></span>次</span>
+    <span class="post-meta-divider">|</span>
+    <span id="busuanzi_container_site_uv">总访客数<span id="busuanzi_value_site_uv"></span>人</span>
+    <span class="post-meta-divider">|</span>
+<!-- 不蒜子计数初始值纠正 -->
+<script>
+$(document).ready(function() {
+
+    var int = setInterval(fixCount, 50);  // 50ms周期检测函数
+    var countOffset = 20000;  // 初始化首次数据
+
+    function fixCount() {            
+       if (document.getElementById("busuanzi_container_site_pv").style.display != "none")
+        {
+            $("#busuanzi_value_site_pv").html(parseInt($("#busuanzi_value_site_pv").html()) + countOffset); 
+            clearInterval(int);
+        }                  
+        if ($("#busuanzi_container_site_pv").css("display") != "none")
+        {
+            $("#busuanzi_value_site_uv").html(parseInt($("#busuanzi_value_site_uv").html()) + countOffset); // 加上初始数据 
+            clearInterval(int); // 停止检测
+        }  
+    }
+       	
+});
+</script> 
+
+        
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/pisces.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+
+
+
+  
+
+
+
+
+  
+<script src="/js/local-search.js"></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>

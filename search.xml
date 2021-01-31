@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/contents/ckkl5vm5b0001bctud2vp79o7.html</url>
+    <url>/contents/ckkl66gh30001swtucbbh7kn8.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -16,7 +16,7 @@
   </entry>
   <entry>
     <title>test_my_site</title>
-    <url>/contents/ckkl5vm5e0003bctu1rtu51o3.html</url>
+    <url>/contents/ckkl66gh60003swtu2a5r8y8t.html</url>
     <content><![CDATA[<p>烦烦烦<a href="https://zhuanlan.zhihu.com/p/106060640">https://zhuanlan.zhihu.com/p/106060640</a></p>
 ]]></content>
       <categories>
@@ -27,25 +27,8 @@
       </tags>
   </entry>
   <entry>
-    <title>ubuntu16.04升级gcc和g++</title>
-    <url>/contents/ckkl5vm5g0005bctu12cm41fm.html</url>
-    <content><![CDATA[<h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p>
-<a id="more"></a>
-
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加ppa到库</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gcc-7</span><br><span class="line">sudo apt-get install g++-7</span><br></pre></td></tr></table></figure>
-<h4 id="配置默认选项"><a href="#配置默认选项" class="headerlink" title="配置默认选项"></a>配置默认选项</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100</span><br><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure>
-<h4 id="查看已安装的版本信息"><a href="#查看已安装的版本信息" class="headerlink" title="查看已安装的版本信息"></a>查看已安装的版本信息</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Linux</category>
-      </categories>
-      <tags>
-        <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>nginx文件管理器+添加Nginx认证服务</title>
-    <url>/contents/ckkl5vm5m000fbctu6fde117r.html</url>
+    <url>/contents/ckkl66gh70005swtuej2rbufi.html</url>
     <content><![CDATA[<h2 id="配置nginx文件管理器-添加Nginx认证服务"><a href="#配置nginx文件管理器-添加Nginx认证服务" class="headerlink" title="配置nginx文件管理器+添加Nginx认证服务"></a>配置nginx文件管理器+添加Nginx认证服务</h2><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure>
 <a id="more"></a>
 
@@ -70,10 +53,139 @@
 <h4 id="重新加载Nginx服务器"><a href="#重新加载Nginx服务器" class="headerlink" title="重新加载Nginx服务器"></a>重新加载Nginx服务器</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
-        <category>nginx</category>
+        <category>Nginx</category>
       </categories>
       <tags>
-        <tag>nginx</tag>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>IOT初级学习</title>
+    <url>/contents/ckkl66ghd000fswtu33ucedzn.html</url>
+    <content><![CDATA[<h2 id="编程器"><a href="#编程器" class="headerlink" title="编程器"></a>编程器</h2><p>为了兼容性和通用性，很多芯片都预留了JTAG，SW，SPI，UART一类的标准写接口进行程序烧写，或者提供Bootloader让芯片能够通过这些标准接口进行烧写，当然，也有爱好自己开发的，比如经典的Arduino，就是内置了Bootloader，让原本需要通过SPI或者JTAG烧写的AVR单片机能够使用串口UATR烧写程序</p>
+<a id="more"></a>
+
+<h2 id="硬件常用的接口"><a href="#硬件常用的接口" class="headerlink" title="硬件常用的接口"></a>硬件常用的接口</h2><h3 id="编程器-1"><a href="#编程器-1" class="headerlink" title="编程器"></a>编程器</h3><p>读取Flash芯片，需要借助编程器，编程器又称烧录器、写入器、写码器，是专门用来对 IC 芯片进行读写、编程/烧录的仪器。并口多功能 BIOS 编程器，它可以对 EPROM（27系列芯片）、EEPROM（28系列芯片）、FLASH ROM（29、39、49系列芯片）及单片机、串行芯片等进行读写、编程，是一种性价比较高的编程器。 </p>
+<h3 id="RS232"><a href="#RS232" class="headerlink" title="RS232"></a>RS232</h3><p>通信方式允许简单连接三线：TX，RX和地线，但是对于数据传输，双方必须对数据定时采用相同的波特率</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">X是extended specification的缩写，意思为扩展规范。 英文TX和RX中，TX=传出，RX=接收比如RS232/485/422通讯中，RS232最基本的为三线通讯，一个发送线（Tx），一个接收线（Rx），一个公共线（参考地GND）</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="RS232-1"><a href="#RS232-1" class="headerlink" title="RS232"></a>RS232</h3><p>其实是电平上的区别，RS232的电平通常是+12V和-12v，通过MAX232一类的电平转换芯片，就能转换为0~5V的TTL电平，本质上通信协议标准都是一样的，所以，TTL的Sniffer也是同样的原理</p>
+<h3 id="RS422"><a href="#RS422" class="headerlink" title="RS422"></a>RS422</h3><p>RS-422标准全称是“平衡电业数字接口电路的电气特性”，在RS232后推出，使用TTL差动电平表示逻辑就是两根的电压差表示逻辑，RS422定义为全双工，所以至少要4根通信线（一般额外多一根地线）</p>
+<h3 id="RS485"><a href="#RS485" class="headerlink" title="RS485"></a>RS485</h3><p>RS485是一个定义平衡数字多点系统中的驱动器和接收器的电气特征的标准，RS485与RS422的区别在与RS485位半双工通信方式，RS422位全双工方式，RS422用两对平衡差分信号分别用于发送和接收，所以采用RS422接口通信时最少需要4根线，RS485只用一对平衡差分信号线，不能同时发送和接收，最少只需要两根连线。</p>
+<h3 id="I2C"><a href="#I2C" class="headerlink" title="I2C"></a>I2C</h3><p>I2C即inter-integrate circuit（集成电路总线），这种总线类型是由飞利浦半导体公司在八十年代初设计出来的一种简单，双向，二线制，同步串行总线，主要是用来连接整体电路（ICS），IIC是一种多向控制总线，也就是说多个芯片可以连接到同一总线结构下，同时每个芯片都可以作为实时数据传输的控制源，这种方式简化了信号传输总线接口。</p>
+<h3 id="SPI"><a href="#SPI" class="headerlink" title="SPI"></a>SPI</h3><p>spi是串行外设接口（serial peripheral interface）的缩写，spi是一种高速的，全双工，同步的通信总线，并且在芯片的管脚上只占用四根线，节约了芯片的管脚，同时为PCB的布局上节省空间，提供方便，正式出于这种简单易用的特征，如今越来越多的芯片集成了这种通信协议，比如AT91RM9200</p>
+<h3 id="CAN"><a href="#CAN" class="headerlink" title="CAN"></a>CAN</h3><h3 id="ModBus"><a href="#ModBus" class="headerlink" title="ModBus"></a>ModBus</h3><h3 id="ProFiBus"><a href="#ProFiBus" class="headerlink" title="ProFiBus"></a>ProFiBus</h3><h3 id="RJ45"><a href="#RJ45" class="headerlink" title="RJ45"></a>RJ45</h3><h3 id="硬件分析"><a href="#硬件分析" class="headerlink" title="硬件分析"></a>硬件分析</h3><h3 id="eeprom和flash的区别"><a href="#eeprom和flash的区别" class="headerlink" title="eeprom和flash的区别"></a>eeprom和flash的区别</h3><p><a href="https://zhuanlan.zhihu.com/p/27621418">https://zhuanlan.zhihu.com/p/27621418</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p>如何自建IoT实验室（一）<a href="https://www.white-alone.com/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BB%BAIoT%E5%AE%9E%E9%AA%8C%E5%AE%A4_1/">https://www.white-alone.com/%E5%A6%82%E4%BD%95%E8%87%AA%E5%BB%BAIoT%E5%AE%9E%E9%AA%8C%E5%AE%A4_1/</a></p>
+<p>IOT 安全资料整合（主要是路由器）<a href="https://www.cnblogs.com/H4lo/p/11721932.html">https://www.cnblogs.com/H4lo/p/11721932.html</a></p>
+<p>路由器固件提取分析<a href="https://www.mdeditor.tw/pl/pmzR">https://www.mdeditor.tw/pl/pmzR</a></p>
+<p>Dlink路由器固件-qemu调试环境搭建<a href="https://xz.aliyun.com/t/462">https://xz.aliyun.com/t/462</a></p>
+<h2 id="复现文章"><a href="#复现文章" class="headerlink" title="复现文章"></a>复现文章</h2><h3 id="制作摄像头恶意固件"><a href="#制作摄像头恶意固件" class="headerlink" title="制作摄像头恶意固件"></a>制作摄像头恶意固件</h3><p>该固件是wyze摄像头固件，固件版本是demo_v2_4.9.5.36</p>
+<p>首先使用binwalk分析一下固件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">binwalk -t demo_v2_4.9.5.36.bin</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201125112847.png" alt="image-20201125112847314"></p>
+<p>第一部分uimage中，告诉了我们很多基础信息</p>
+<p>第二部分uimage中，可以发现内涵位Linux-3.10.14</p>
+<p>第三部分是两个squashfs文件系统（该文件系统属性是只读）</p>
+<p>第四部分是一个jffs2文件系统</p>
+<p>一般我们用常规的binwalk提取的方法如：<strong>binwalk -e</strong>，提取的文件不方便打包，所以可以用一个脚步来提取文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/usr/bin/env python3</span></span><br><span class="line"></span><br><span class="line">import sys</span><br><span class="line"></span><br><span class="line">class Firmwarepart:</span><br><span class="line">    def __init__(self,name,offset,size):</span><br><span class="line">        self.name = name</span><br><span class="line">        self.offset = offset</span><br><span class="line">        self.size = size</span><br><span class="line"></span><br><span class="line">firmware_parts = [</span><br><span class="line">    Firmwarepart(&quot;uimage_header&quot;,0x0,0x40),</span><br><span class="line">    Firmwarepart(&quot;uimage_kernel&quot;,0x40,0x200000),</span><br><span class="line">    Firmwarepart(&quot;squashfs_1&quot;,0x200040,0x350000),</span><br><span class="line">    Firmwarepart(&quot;squashfs_2&quot;,0x550040,0xa0000),</span><br><span class="line">    Firmwarepart(&quot;jffs2&quot;,0x5F0040,11075648-0x5F0040)</span><br><span class="line">]</span><br><span class="line"></span><br><span class="line">if sys.argv[1] == &#x27;unpack&#x27;:</span><br><span class="line">    f = open(sys.argv[2],&quot;rb&quot;)</span><br><span class="line">    for part in firmware_parts:</span><br><span class="line">        outfile = open(part.name,&quot;wb&quot;)</span><br><span class="line">        f.seek(part.offset,0)</span><br><span class="line">        data = f.read(part.size)</span><br><span class="line">        outfile.write(data)</span><br><span class="line">        outfile.close()</span><br><span class="line">        print(f&quot;Wrote &#123;part.name&#125; - &#123;hex(len(data))&#125; bytes.&quot;)</span><br></pre></td></tr></table></figure>
+<p>运行</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 root_extractor.py unpack demo_v2_4.9.5.36.bin</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201130222217.png" alt="image-20201130222216139"></p>
+<p>对于squashFS文件系统的提取，使用unsquashfs来实现：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">unsquashfs -d squashfs_1_out squashfs_1</span><br><span class="line">unsquashfs -d squashfs_2_out squashfs_2</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201130222514.png" alt="image-20201130222514136"></p>
+<p>对于jff2文件系统的提取，使用jefferson实现：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">jefferson -d jffs2_out jffs2	</span><br></pre></td></tr></table></figure>
+<p>将文件提取完成后，检查所提取文件中的敏感信息</p>
+<p>shadow文件如下</p>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201130223433.png" alt="image-20201130223433537"></p>
+<p>通过john进行爆破出来该root密码</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">john --fork=4 shadow</span><br></pre></td></tr></table></figure>
+<p>当我们知道root密码时，如果开启了ssh服务，我们就可以通过ssh登陆到主机</p>
+<p>这里我们找一下系统启动项：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vi etc/init.d/rcs</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201084950.png" alt="image-20201201084949602"></p>
+<p>可以看到系统在启动时是启动了telnet服务，但是实际上telnet服务通过端口扫描发现并未启动</p>
+<p>在解包后的固件里直接搜索</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">grep -r telnet .</span><br><span class="line"></span><br><span class="line">strings ./jffs2_out/fs_1/bin/iCamera | grep telnet</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201085335.png" alt="image-20201201085335445"></p>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201091632.png" alt="image-20201201091632920"></p>
+<p>可以发现在icamera文件里，Telnet服务被禁用掉了</p>
+<p>实际上，在该摄像头里Telnet服务实际上为busybox中的Telnet，我需要找到启动脚本，然后将其修改为：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">busybox telnetf &amp;</span><br></pre></td></tr></table></figure>
+<p>该脚本在squashfs_1_out/etc/init.d/rc中</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim squashfs_1_out/etc/init.d/rcS</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201093458.png" alt="image-20201201093458434"></p>
+<p>该完之后这个服务就不会被kill掉了，接下来我们要将这几个文件系统重新打包并生成固件。</p>
+<p>使用unsquashfs查看一下原来的文件系统信息：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">unsquashfs -s squashfs_1</span><br></pre></td></tr></table></figure>
+<p><img src="https://gitee.com/lutaixue/image/raw/master/img/20201201093738.png" alt="image-20201201093738795"></p>
+<p>接下来使用mksquashfs命令将更改后的新文件系统打包</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mksquashfs squashfs_1_out/ squashfs_1_new -comp xz -b 131072</span><br></pre></td></tr></table></figure>
+<p>再将之前的程序加上一个打包功能，这样就可以把这个两个squashfs文件系统和jffs文件系统打包起来</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">python3 root_extractor.py  pack demo_backdoored.bin</span><br></pre></td></tr></table></figure>
+<p>这样我们仅仅将文件系统打包，至于生成镜像的uImage header部分我们使用其他工具，先使用binwalk    查看一下</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">binwalk -t uimage_header</span><br></pre></td></tr></table></figure>
+<p>接下来使用mkimage来生成镜像</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkimage -A MIPS -O linux -T firmware -C none -a 0 -e 0 -n jz_fw -d demo_backdoored.bin demo_images.bin</span><br></pre></td></tr></table></figure>
+<p>再用binwalk查看demo_images.bin</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">binwalk -t demo_images.bin</span><br></pre></td></tr></table></figure>
+<p>可以看到我们生成的镜像和之前几乎相同</p>
+<p>将该固件应用于摄像头中我们就可以实现用root账号登录管理摄像通了</p>
+<h5 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h5><p><a href="https://www.youtube.com/watch?v=hV8W4o-Mu2o">https://www.youtube.com/watch?v=hV8W4o-Mu2o</a></p>
+]]></content>
+      <categories>
+        <category>IOT</category>
+      </categories>
+      <tags>
+        <tag>IOT</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>ubuntu16.04升级gcc和g++</title>
+    <url>/contents/ckkl66ghe000gswtuccgd3h44.html</url>
+    <content><![CDATA[<h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p>
+<a id="more"></a>
+
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加ppa到库</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gcc-7</span><br><span class="line">sudo apt-get install g++-7</span><br></pre></td></tr></table></figure>
+<h4 id="配置默认选项"><a href="#配置默认选项" class="headerlink" title="配置默认选项"></a>配置默认选项</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100</span><br><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure>
+<h4 id="查看已安装的版本信息"><a href="#查看已安装的版本信息" class="headerlink" title="查看已安装的版本信息"></a>查看已安装的版本信息</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>家用路由器0day漏洞__读书笔记</title>
+    <url>/contents/ckkl66ghf000jswtu9z0fbemb.html</url>
+    <content><![CDATA[<h2 id="路由器漏洞的分类"><a href="#路由器漏洞的分类" class="headerlink" title="路由器漏洞的分类"></a>路由器漏洞的分类</h2><h3 id="路由器密码破解漏洞"><a href="#路由器密码破解漏洞" class="headerlink" title="路由器密码破解漏洞"></a>路由器密码破解漏洞</h3><p>常见wifi加密分别是wpa，wpa2，wep，wep已经被逐渐淘汰</p>
+<p>目前路由器大都引入了一种叫做wps的新技术，wps就是一键加密，主要是为了解决长久以来无线网络加密认证设定的步骤过于复杂的弊端。</p>
+<p>wps中有个pin码，可以通过pin码来破解wifi密码</p>
+<a id="more"></a>
+
+<h3 id="路由器web漏洞"><a href="#路由器web漏洞" class="headerlink" title="路由器web漏洞"></a>路由器web漏洞</h3><p>csrf攻击通过认证绕过漏洞，弱密码或者默认路由器管理密码登录，使攻击者可以像正常用户一样访问和修改路由器的任何设置，在这种攻击中，攻击者根本不需要知道wifi密码就可以控制路由器，控制路由器管理权限后，攻击者可以将用户访问正常网站的请求导向恶意站点，劫持用户流量，推送广告，甚至可以制作一个和被攻击网站一模一样的站点进行钓鱼</p>
+<h3 id="路由器后门漏洞"><a href="#路由器后门漏洞" class="headerlink" title="路由器后门漏洞"></a>路由器后门漏洞</h3><h3 id="路由器溢出漏洞"><a href="#路由器溢出漏洞" class="headerlink" title="路由器溢出漏洞"></a>路由器溢出漏洞</h3><h3 id="路由器系统的基础知识和工具"><a href="#路由器系统的基础知识和工具" class="headerlink" title="路由器系统的基础知识和工具"></a>路由器系统的基础知识和工具</h3><p>路由器的linux系统有两个特点：一是指令架构，路由器是嵌入式系统，多采用MIPS和ARM这个两种指令架构，二是路由器的shell是基于busybox的</p>
+<h4 id="MIPS-Linux"><a href="#MIPS-Linux" class="headerlink" title="MIPS Linux"></a>MIPS Linux</h4><p>MIPS指令架构普遍用于小型设备的处理器架构</p>
+<p>路由器的根文件系统与linux系统基本上是一致的，路由器系统中，根文件系统下通常有，usr，sys，proc，lib，etc，bin，var，tmp，sbin，mnt，include，home及dev目录，其中bin，sbin及usr目录下的bin，sbin都是用于存放路由器中的应用程序的目录，而lib目录及usr目录下的lib是用于存放程序运行时需要的动态库文件的目录，还有一个重要的目录是etc目录，该目录用于存放路由器配置文件，在路由器系统中主要用来存放程序的启动配置文件，脚本文件及各种服务程序的卑职文件（如web服务器的配置文件等）</p>
+<h4 id="BusyBox命令"><a href="#BusyBox命令" class="headerlink" title="BusyBox命令"></a>BusyBox命令</h4><p>在路由器中，因为存储空间受到限制，所以使用的shell是一个经过剪裁的名为BusyBox的程序，在路由器系统的shell中支持的这些命令其实都指向BUsyBox的符号链接，不同路由器的的BusyBox剪裁程度不同，因此每个路由器系统设备所支持的命令种类可能不同</p>
+<h3 id="MIPS汇编语言基础"><a href="#MIPS汇编语言基础" class="headerlink" title="MIPS汇编语言基础"></a>MIPS汇编语言基础</h3><h4 id="寄存器"><a href="#寄存器" class="headerlink" title="寄存器"></a>寄存器</h4><h2 id="必备软件和环境"><a href="#必备软件和环境" class="headerlink" title="必备软件和环境"></a>必备软件和环境</h2><h3 id="路由器漏洞分析环境"><a href="#路由器漏洞分析环境" class="headerlink" title="路由器漏洞分析环境"></a>路由器漏洞分析环境</h3><h4 id="QEMU"><a href="#QEMU" class="headerlink" title="QEMU"></a>QEMU</h4><p>本章节出了一些问题该博客基于修复</p>
+<p><a href="https://blog.csdn.net/wxh0000mm/article/details/85691111">https://blog.csdn.net/wxh0000mm/article/details/85691111</a></p>
+<p><a href="https://www.codenong.com/cs105098983/">https://www.codenong.com/cs105098983/</a></p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">当程序是静态编译（gcc编译的时候，加了静态编译选项 &quot;-static&quot; ）完成，运行时 不需要依赖动态链接库 ，在使用QEMU运行编译好的Linux程序使用下面的命令就好：</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash"> 查看可执行程序hello的文件类型MIPS32</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> file hello</span></span><br><span class="line">hello: ELF 32-bit MSB executable, MIPS, MIPS32 version 1 (SYSV), statically linked, not stripped</span><br><span class="line"><span class="meta">$</span><span class="bash"> cp $(<span class="built_in">which</span> qemu-mips) ./</span></span><br><span class="line"><span class="meta">#</span><span class="bash"> 使用qemu-mips加载hello程序</span></span><br><span class="line"><span class="meta">$</span><span class="bash"> ./qemu-mips hello <span class="string">&quot;Hello World&quot;</span></span></span><br><span class="line">Hello Worl</span><br></pre></td></tr></table></figure>
+<h4 id="mips编译环境"><a href="#mips编译环境" class="headerlink" title="mips编译环境"></a>mips编译环境</h4><p><a href="https://p1kk.github.io/2020/03/28/%E8%B7%AF%E7%94%B1%E5%99%A8/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/">https://p1kk.github.io/2020/03/28/%E8%B7%AF%E7%94%B1%E5%99%A8/%E8%B7%AF%E7%94%B1%E5%99%A8%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</a></p>
+<p><a href="https://ha.cker.in/index.php/Article/35041">https://ha.cker.in/index.php/Article/35041</a></p>
+<p><a href="https://xz.aliyun.com/t/6071">https://xz.aliyun.com/t/6071</a></p>
+]]></content>
+      <categories>
+        <category>IOT</category>
+      </categories>
+      <tags>
+        <tag>IOT</tag>
       </tags>
   </entry>
 </search>
