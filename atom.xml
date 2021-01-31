@@ -6,7 +6,7 @@
   <link href="http://example.com/atom.xml" rel="self"/>
   
   <link href="http://example.com/"/>
-  <updated>2021-01-31T13:17:20.510Z</updated>
+  <updated>2021-01-31T13:48:00.763Z</updated>
   <id>http://example.com/</id>
   
   <author>
@@ -17,9 +17,34 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>博客参考</title>
+    <link href="http://example.com/contents/ckkl7btq7000j44tug4exd91t.html"/>
+    <id>http://example.com/contents/ckkl7btq7000j44tug4exd91t.html</id>
+    <published>2021-01-31T13:46:10.000Z</published>
+    <updated>2021-01-31T13:48:00.763Z</updated>
+    
+    <content type="html"><![CDATA[<p><a href="https://alobal.github.io/movies/">https://alobal.github.io/movies/</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;&lt;a href=&quot;https://alobal.github.io/movies/&quot;&gt;https://alobal.github.io/movies/&lt;/a&gt;&lt;/p&gt;
+</summary>
+      
+    
+    
+    
+    <category term="生活" scheme="http://example.com/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+    <category term="生活" scheme="http://example.com/tags/%E7%94%9F%E6%B4%BB/"/>
+    
+  </entry>
+  
+  <entry>
     <title>家用路由器0day漏洞__读书笔记</title>
-    <link href="http://example.com/contents/ckkl66ghf000jswtu9z0fbemb.html"/>
-    <id>http://example.com/contents/ckkl66ghf000jswtu9z0fbemb.html</id>
+    <link href="http://example.com/contents/ckkl7btq8000k44tuf8zieew0.html"/>
+    <id>http://example.com/contents/ckkl7btq8000k44tuf8zieew0.html</id>
     <published>2021-01-31T13:15:49.000Z</published>
     <updated>2021-01-31T13:17:20.510Z</updated>
     
@@ -41,8 +66,8 @@
   
   <entry>
     <title>IOT初级学习</title>
-    <link href="http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html"/>
-    <id>http://example.com/contents/ckkl66ghd000fswtu33ucedzn.html</id>
+    <link href="http://example.com/contents/ckkl7btpd000544tu9noq5uao.html"/>
+    <id>http://example.com/contents/ckkl7btpd000544tu9noq5uao.html</id>
     <published>2021-01-31T13:13:56.000Z</published>
     <updated>2021-01-31T13:17:35.068Z</updated>
     
@@ -62,8 +87,8 @@
   
   <entry>
     <title>ubuntu16.04升级gcc和g++</title>
-    <link href="http://example.com/contents/ckkl66ghe000gswtuccgd3h44.html"/>
-    <id>http://example.com/contents/ckkl66ghe000gswtuccgd3h44.html</id>
+    <link href="http://example.com/contents/ckkl7btq5000f44tu5h3u7eiz.html"/>
+    <id>http://example.com/contents/ckkl7btq5000f44tu5h3u7eiz.html</id>
     <published>2021-01-31T13:07:10.000Z</published>
     <updated>2021-01-31T13:12:30.546Z</updated>
     
@@ -83,8 +108,8 @@
   
   <entry>
     <title>nginx文件管理器+添加Nginx认证服务</title>
-    <link href="http://example.com/contents/ckkl66gh70005swtuej2rbufi.html"/>
-    <id>http://example.com/contents/ckkl66gh70005swtuej2rbufi.html</id>
+    <link href="http://example.com/contents/ckkl7btq6000g44tu3clb1vt4.html"/>
+    <id>http://example.com/contents/ckkl7btq6000g44tu3clb1vt4.html</id>
     <published>2021-01-31T12:51:30.000Z</published>
     <updated>2021-01-31T13:14:37.473Z</updated>
     
@@ -104,8 +129,8 @@
   
   <entry>
     <title>test_my_site</title>
-    <link href="http://example.com/contents/ckkl66gh60003swtu2a5r8y8t.html"/>
-    <id>http://example.com/contents/ckkl66gh60003swtu2a5r8y8t.html</id>
+    <link href="http://example.com/contents/ckkl7btpc000344tu5y45ap2a.html"/>
+    <id>http://example.com/contents/ckkl7btpc000344tu5y45ap2a.html</id>
     <published>2021-01-27T11:48:33.000Z</published>
     <updated>2021-01-31T12:46:06.656Z</updated>
     
@@ -125,8 +150,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/contents/ckkl66gh30001swtucbbh7kn8.html"/>
-    <id>http://example.com/contents/ckkl66gh30001swtucbbh7kn8.html</id>
+    <link href="http://example.com/contents/ckkl7btp9000144tu622j36zg.html"/>
+    <id>http://example.com/contents/ckkl7btp9000144tu622j36zg.html</id>
     <published>2021-01-27T09:38:49.469Z</published>
     <updated>2021-01-27T09:38:49.469Z</updated>
     

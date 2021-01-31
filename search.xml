@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>Hello World</title>
-    <url>/contents/ckkl66gh30001swtucbbh7kn8.html</url>
+    <url>/contents/ckkl7btp9000144tu622j36zg.html</url>
     <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
 <h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
 <p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
@@ -16,7 +16,7 @@
   </entry>
   <entry>
     <title>test_my_site</title>
-    <url>/contents/ckkl66gh60003swtu2a5r8y8t.html</url>
+    <url>/contents/ckkl7btpc000344tu5y45ap2a.html</url>
     <content><![CDATA[<p>烦烦烦<a href="https://zhuanlan.zhihu.com/p/106060640">https://zhuanlan.zhihu.com/p/106060640</a></p>
 ]]></content>
       <categories>
@@ -27,41 +27,8 @@
       </tags>
   </entry>
   <entry>
-    <title>nginx文件管理器+添加Nginx认证服务</title>
-    <url>/contents/ckkl66gh70005swtuej2rbufi.html</url>
-    <content><![CDATA[<h2 id="配置nginx文件管理器-添加Nginx认证服务"><a href="#配置nginx文件管理器-添加Nginx认证服务" class="headerlink" title="配置nginx文件管理器+添加Nginx认证服务"></a>配置nginx文件管理器+添加Nginx认证服务</h2><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure>
-<a id="more"></a>
-
-<h3 id="配置nginx文件"><a href="#配置nginx文件" class="headerlink" title="配置nginx文件"></a>配置nginx文件</h3><p>再home目录下创建test文件夹</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir test</span><br></pre></td></tr></table></figure>
-<p>创建nginx配置文件</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/file_server.conf</span><br></pre></td></tr></table></figure>
-<p>配置文件如下：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  自己服务器IP; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间 </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>重新加载nginx服务器：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
-<p>访问：</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http:自己服务器IP</span><br></pre></td></tr></table></figure>
-<h3 id="添加nginx认证服务"><a href="#添加nginx认证服务" class="headerlink" title="添加nginx认证服务"></a>添加nginx认证服务</h3><h4 id="安装Apache工具"><a href="#安装Apache工具" class="headerlink" title="安装Apache工具"></a>安装Apache工具</h4><p>需要使用htpasswd命令创建具有加密登录详细信息的.htpasswd。 所以安装apache工具来获取系统上的htpasswd命令</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install apache2-utils</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">$ yum install httpd-tools</span></span><br></pre></td></tr></table></figure>
-<h4 id="创建凭据文件"><a href="#创建凭据文件" class="headerlink" title="创建凭据文件"></a>创建凭据文件</h4><p>需要创建一个空的/etc/nginx/.htpasswd文件。您还可以使用htpasswd命令中的-c。但是，这将覆盖现有文件，您可能会意外覆盖现有文件，同时添加更多用户。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch /etc/nginx/.htpasswd</span><br></pre></td></tr></table></figure>
-<p>开始使用htpasswd命令添加新用户</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">htpasswd -m /etc/nginx/.htpasswd user</span><br><span class="line"></span><br><span class="line">-m用于创建md5加密密码。</span><br></pre></td></tr></table></figure>
-<h4 id="编辑Nginx配置"><a href="#编辑Nginx配置" class="headerlink" title="编辑Nginx配置"></a>编辑Nginx配置</h4><p>编辑服务器块的Nginx配置文件。在需要验证的服务器块中添加以下条目。</p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  172.93.189.42; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">  auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间</span><br><span class="line">    auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">    auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="重新加载Nginx服务器"><a href="#重新加载Nginx服务器" class="headerlink" title="重新加载Nginx服务器"></a>重新加载Nginx服务器</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Nginx</category>
-      </categories>
-      <tags>
-        <tag>Nginx</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>IOT初级学习</title>
-    <url>/contents/ckkl66ghd000fswtu33ucedzn.html</url>
+    <url>/contents/ckkl7btpd000544tu9noq5uao.html</url>
     <content><![CDATA[<h2 id="编程器"><a href="#编程器" class="headerlink" title="编程器"></a>编程器</h2><p>为了兼容性和通用性，很多芯片都预留了JTAG，SW，SPI，UART一类的标准写接口进行程序烧写，或者提供Bootloader让芯片能够通过这些标准接口进行烧写，当然，也有爱好自己开发的，比如经典的Arduino，就是内置了Bootloader，让原本需要通过SPI或者JTAG烧写的AVR单片机能够使用串口UATR烧写程序</p>
 <a id="more"></a>
 
@@ -145,7 +112,7 @@
   </entry>
   <entry>
     <title>ubuntu16.04升级gcc和g++</title>
-    <url>/contents/ckkl66ghe000gswtuccgd3h44.html</url>
+    <url>/contents/ckkl7btq5000f44tu5h3u7eiz.html</url>
     <content><![CDATA[<h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p>
 <a id="more"></a>
 
@@ -161,8 +128,53 @@
       </tags>
   </entry>
   <entry>
+    <title>nginx文件管理器+添加Nginx认证服务</title>
+    <url>/contents/ckkl7btq6000g44tu3clb1vt4.html</url>
+    <content><![CDATA[<h2 id="配置nginx文件管理器-添加Nginx认证服务"><a href="#配置nginx文件管理器-添加Nginx认证服务" class="headerlink" title="配置nginx文件管理器+添加Nginx认证服务"></a>配置nginx文件管理器+添加Nginx认证服务</h2><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+
+<h3 id="配置nginx文件"><a href="#配置nginx文件" class="headerlink" title="配置nginx文件"></a>配置nginx文件</h3><p>再home目录下创建test文件夹</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">mkdir test</span><br></pre></td></tr></table></figure>
+<p>创建nginx配置文件</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">vim /etc/nginx/conf.d/file_server.conf</span><br></pre></td></tr></table></figure>
+<p>配置文件如下：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  自己服务器IP; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间 </span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>重新加载nginx服务器：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
+<p>访问：</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">http:自己服务器IP</span><br></pre></td></tr></table></figure>
+<h3 id="添加nginx认证服务"><a href="#添加nginx认证服务" class="headerlink" title="添加nginx认证服务"></a>添加nginx认证服务</h3><h4 id="安装Apache工具"><a href="#安装Apache工具" class="headerlink" title="安装Apache工具"></a>安装Apache工具</h4><p>需要使用htpasswd命令创建具有加密登录详细信息的.htpasswd。 所以安装apache工具来获取系统上的htpasswd命令</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo apt-get install apache2-utils</span><br><span class="line"></span><br><span class="line"><span class="meta">#</span><span class="bash">$ yum install httpd-tools</span></span><br></pre></td></tr></table></figure>
+<h4 id="创建凭据文件"><a href="#创建凭据文件" class="headerlink" title="创建凭据文件"></a>创建凭据文件</h4><p>需要创建一个空的/etc/nginx/.htpasswd文件。您还可以使用htpasswd命令中的-c。但是，这将覆盖现有文件，您可能会意外覆盖现有文件，同时添加更多用户。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">touch /etc/nginx/.htpasswd</span><br></pre></td></tr></table></figure>
+<p>开始使用htpasswd命令添加新用户</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">htpasswd -m /etc/nginx/.htpasswd user</span><br><span class="line"></span><br><span class="line">-m用于创建md5加密密码。</span><br></pre></td></tr></table></figure>
+<h4 id="编辑Nginx配置"><a href="#编辑Nginx配置" class="headerlink" title="编辑Nginx配置"></a>编辑Nginx配置</h4><p>编辑服务器块的Nginx配置文件。在需要验证的服务器块中添加以下条目。</p>
+<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80; </span><br><span class="line">  server_name  172.93.189.42; # 自己PC的ip或者服务器的域名 </span><br><span class="line">  charset utf-8; # 避免中文乱码 </span><br><span class="line">  auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">  auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  root /home/test; # 存放文件的目录 </span><br><span class="line">  location / &#123; </span><br><span class="line">    autoindex on; # 索引 </span><br><span class="line">    autoindex_exact_size on; # 显示文件大小 </span><br><span class="line">    autoindex_localtime on; # 显示文件时间</span><br><span class="line">    auth_basic &quot;Restricted Area&quot;;</span><br><span class="line">    auth_basic_user_file /etc/nginx/.htpasswd;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="重新加载Nginx服务器"><a href="#重新加载Nginx服务器" class="headerlink" title="重新加载Nginx服务器"></a>重新加载Nginx服务器</h4><figure class="highlight shell"><table><tr><td class="code"><pre><span class="line">sudo /etc/init.d/nginx restart</span><br></pre></td></tr></table></figure>
+]]></content>
+      <categories>
+        <category>Nginx</category>
+      </categories>
+      <tags>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>博客参考</title>
+    <url>/contents/ckkl7btq7000j44tug4exd91t.html</url>
+    <content><![CDATA[<p><a href="https://alobal.github.io/movies/">https://alobal.github.io/movies/</a></p>
+]]></content>
+      <categories>
+        <category>生活</category>
+      </categories>
+      <tags>
+        <tag>生活</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>家用路由器0day漏洞__读书笔记</title>
-    <url>/contents/ckkl66ghf000jswtu9z0fbemb.html</url>
+    <url>/contents/ckkl7btq8000k44tuf8zieew0.html</url>
     <content><![CDATA[<h2 id="路由器漏洞的分类"><a href="#路由器漏洞的分类" class="headerlink" title="路由器漏洞的分类"></a>路由器漏洞的分类</h2><h3 id="路由器密码破解漏洞"><a href="#路由器密码破解漏洞" class="headerlink" title="路由器密码破解漏洞"></a>路由器密码破解漏洞</h3><p>常见wifi加密分别是wpa，wpa2，wep，wep已经被逐渐淘汰</p>
 <p>目前路由器大都引入了一种叫做wps的新技术，wps就是一键加密，主要是为了解决长久以来无线网络加密认证设定的步骤过于复杂的弊端。</p>
 <p>wps中有个pin码，可以通过pin码来破解wifi密码</p>
