@@ -195,7 +195,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5kowh0006actu2zbdgvu1.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5tf8d0005tktu2uehhw93.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -209,7 +209,93 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/contents/ckkl5kowh0006actu2zbdgvu1.html" class="post-title-link" itemprop="url">nginx文件管理器+添加Nginx认证服务</a>
+            <a href="/contents/ckkl5tf8d0005tktu2uehhw93.html" class="post-title-link" itemprop="url">ubuntu16.04升级gcc和g++</a>
+        </h2>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2021-01-31 21:07:10" itemprop="dateCreated datePublished" datetime="2021-01-31T21:07:10+08:00">2021-01-31</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+                </span>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>432</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+          <h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加ppa到库</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gcc-7</span><br><span class="line">sudo apt-get install g++-7</span><br></pre></td></tr></table></figure>
+<h4 id="配置默认选项"><a href="#配置默认选项" class="headerlink" title="配置默认选项"></a>配置默认选项</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100</span><br><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure>
+<h4 id="查看已安装的版本信息"><a href="#查看已安装的版本信息" class="headerlink" title="查看已安装的版本信息"></a>查看已安装的版本信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    
+    
+    
+	
+	 
+      <footer class="post-footer">
+        <div class="post-eof"></div>
+      </footer>
+  </article>
+  
+  
+  
+
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5tf8h000ftktuc98u5j8u.html">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+      <meta itemprop="name" content="GitCloud">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="GitCloud">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          
+            <a href="/contents/ckkl5tf8h000ftktuc98u5j8u.html" class="post-title-link" itemprop="url">nginx文件管理器+添加Nginx认证服务</a>
         </h2>
 
         <div class="post-meta">
@@ -259,7 +345,7 @@
           <h2 id="配置nginx文件管理器-添加Nginx认证服务"><a href="#配置nginx文件管理器-添加Nginx认证服务" class="headerlink" title="配置nginx文件管理器+添加Nginx认证服务"></a>配置nginx文件管理器+添加Nginx认证服务</h2><h3 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt-get install nginx</span><br></pre></td></tr></table></figure>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/contents/ckkl5kowh0006actu2zbdgvu1.html#more" rel="contents">
+              <a class="btn" href="/contents/ckkl5tf8h000ftktuc98u5j8u.html#more" rel="contents">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -285,7 +371,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5kowg0005actub4nn0whj.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5tf8b0003tktu43a65gac.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -299,7 +385,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/contents/ckkl5kowg0005actub4nn0whj.html" class="post-title-link" itemprop="url">test_my_site</a>
+            <a href="/contents/ckkl5tf8b0003tktu43a65gac.html" class="post-title-link" itemprop="url">test_my_site</a>
         </h2>
 
         <div class="post-meta">
@@ -349,7 +435,7 @@
           <p>这是显示在首页的概述，正文内容均会被隐藏。</p>
           <!--noindex-->
             <div class="post-button">
-              <a class="btn" href="/contents/ckkl5kowg0005actub4nn0whj.html">
+              <a class="btn" href="/contents/ckkl5tf8b0003tktu43a65gac.html">
                 阅读全文 &raquo;
               </a>
             </div>
@@ -375,7 +461,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5kow10001actu029wdrpz.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkl5tf880001tktu9l40a5bh.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -389,7 +475,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/contents/ckkl5kow10001actu029wdrpz.html" class="post-title-link" itemprop="url">Hello World</a>
+            <a href="/contents/ckkl5tf880001tktu9l40a5bh.html" class="post-title-link" itemprop="url">Hello World</a>
         </h2>
 
         <div class="post-meta">
@@ -521,20 +607,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">3</span>
+          <span class="site-state-item-count">4</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
