@@ -20,20 +20,20 @@
     var CONFIG = {"hostname":"example.com","root":"/","scheme":"Pisces","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="2021-2-11.背了些英语单词 2.学习了些基础算法 总体：今天收获不是很大 2021-2-21.看了一节汤老师的考研视频，算是慢慢走上考研的正规了 2.下午接到消息，开始测试robot比赛的接口，研究了以前师傅们写的robot的代码，按照给定的测试接口进行修改一下，不过，一直报错，很苦恼，晚上11点多终于修改了一个接口，剩下的还要继续修改，明天安排。 总结：考研的计划正在逐渐安排，自己也慢慢">
+  <meta name="description" content="ubuntu16.04升级gcc和g++因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下">
 <meta property="og:type" content="article">
-<meta property="og:title" content="学习日记">
-<meta property="og:url" content="http://example.com/contents/ckko49k9r000kr4tud8sihg13.html">
+<meta property="og:title" content="ubuntu16.04升级gcc和g++">
+<meta property="og:url" content="http://example.com/contents/ckkpiflws0009u0tuaubift1y.html">
 <meta property="og:site_name" content="GitCloud">
-<meta property="og:description" content="2021-2-11.背了些英语单词 2.学习了些基础算法 总体：今天收获不是很大 2021-2-21.看了一节汤老师的考研视频，算是慢慢走上考研的正规了 2.下午接到消息，开始测试robot比赛的接口，研究了以前师傅们写的robot的代码，按照给定的测试接口进行修改一下，不过，一直报错，很苦恼，晚上11点多终于修改了一个接口，剩下的还要继续修改，明天安排。 总结：考研的计划正在逐渐安排，自己也慢慢">
+<meta property="og:description" content="ubuntu16.04升级gcc和g++因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2021-02-01T14:06:39.000Z">
-<meta property="article:modified_time" content="2021-02-02T14:47:36.602Z">
+<meta property="article:published_time" content="2021-01-31T13:07:10.000Z">
+<meta property="article:modified_time" content="2021-01-31T13:12:30.546Z">
 <meta property="article:author" content="GitCloud">
-<meta property="article:tag" content="学习日记">
+<meta property="article:tag" content="Linux">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="http://example.com/contents/ckko49k9r000kr4tud8sihg13.html">
+<link rel="canonical" href="http://example.com/contents/ckkpiflws0009u0tuaubift1y.html">
 
 
 <script id="page-configurations">
@@ -46,7 +46,7 @@
   };
 </script>
 
-  <title>学习日记 | GitCloud</title>
+  <title>ubuntu16.04升级gcc和g++ | GitCloud</title>
   
 
 
@@ -201,7 +201,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckko49k9r000kr4tud8sihg13.html">
+    <link itemprop="mainEntityOfPage" href="http://example.com/contents/ckkpiflws0009u0tuaubift1y.html">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -214,7 +214,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          学习日记
+          ubuntu16.04升级gcc和g++
         </h1>
 
         <div class="post-meta">
@@ -224,7 +224,7 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2021-02-01 22:06:39" itemprop="dateCreated datePublished" datetime="2021-02-01T22:06:39+08:00">2021-02-01</time>
+              <time title="创建时间：2021-01-31 21:07:10" itemprop="dateCreated datePublished" datetime="2021-01-31T21:07:10+08:00">2021-01-31</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -232,7 +232,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">学习日记</span></a>
+                  <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
                 </span>
             </span>
 
@@ -249,7 +249,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>208</span>
+              <span>432</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -268,12 +268,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h3 id="2021-2-1"><a href="#2021-2-1" class="headerlink" title="2021-2-1"></a>2021-2-1</h3><p>1.背了些英语单词</p>
-<p>2.学习了些基础算法</p>
-<p>总体：今天收获不是很大</p>
-<h3 id="2021-2-2"><a href="#2021-2-2" class="headerlink" title="2021-2-2"></a>2021-2-2</h3><p>1.看了一节汤老师的考研视频，算是慢慢走上考研的正规了</p>
-<p>2.下午接到消息，开始测试robot比赛的接口，研究了以前师傅们写的robot的代码，按照给定的测试接口进行修改一下，不过，一直报错，很苦恼，晚上11点多终于修改了一个接口，剩下的还要继续修改，明天安排。</p>
-<p>总结：考研的计划正在逐渐安排，自己也慢慢适应这种新的一种作息和学习</p>
+        <h1 id="ubuntu16-04升级gcc和g"><a href="#ubuntu16-04升级gcc和g" class="headerlink" title="ubuntu16.04升级gcc和g++"></a>ubuntu16.04升级gcc和g++</h1><p>因为要安装edb，编译的时候报错说自己ubuntu16的gcc版本太低了，所以升级一下</p>
+<a id="more"></a>
+
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash"> 添加ppa到库</span></span><br><span class="line">sudo add-apt-repository ppa:ubuntu-toolchain-r/test</span><br><span class="line">sudo apt-get update </span><br><span class="line">sudo apt-get install gcc-7</span><br><span class="line">sudo apt-get install g++-7</span><br></pre></td></tr></table></figure>
+<h4 id="配置默认选项"><a href="#配置默认选项" class="headerlink" title="配置默认选项"></a>配置默认选项</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-7 100</span><br><span class="line">sudo update-alternatives --config gcc</span><br><span class="line">sudo update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-7 100</span><br><span class="line">sudo update-alternatives --config g++</span><br></pre></td></tr></table></figure>
+<h4 id="查看已安装的版本信息"><a href="#查看已安装的版本信息" class="headerlink" title="查看已安装的版本信息"></a>查看已安装的版本信息</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">gcc --version</span><br><span class="line">g++ --version</span><br></pre></td></tr></table></figure>
 
     </div>
 
@@ -299,7 +299,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://example.com/contents/ckko49k9r000kr4tud8sihg13.html" title="学习日记">http://example.com/contents/ckko49k9r000kr4tud8sihg13.html</a>
+    <a href="http://example.com/contents/ckkpiflws0009u0tuaubift1y.html" title="ubuntu16.04升级gcc和g++">http://example.com/contents/ckkpiflws0009u0tuaubift1y.html</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -310,7 +310,7 @@
 
       <footer class="post-footer">
           <div class="post-tags">
-              <a href="/tags/%E5%AD%A6%E4%B9%A0%E6%97%A5%E8%AE%B0/" rel="tag"># 学习日记</a>
+              <a href="/tags/Linux/" rel="tag"># Linux</a>
           </div>
 
         
@@ -319,12 +319,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/contents/ckko49k9n000br4tu8rui9s0n.html" rel="prev" title="博客参考">
-      <i class="fa fa-chevron-left"></i> 博客参考
+    <a href="/contents/ckkpiflwt000au0tu0h1sbyhr.html" rel="prev" title="nginx文件管理器+添加Nginx认证服务">
+      <i class="fa fa-chevron-left"></i> nginx文件管理器+添加Nginx认证服务
     </a></div>
       <div class="post-nav-item">
-    <a href="/contents/ckko49k9p000gr4tugs5qax8c.html" rel="next" title="基础算法">
-      基础算法 <i class="fa fa-chevron-right"></i>
+    <a href="/contents/ckkpiflwp0005u0tubpkkft0q.html" rel="next" title="IOT初级学习">
+      IOT初级学习 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -384,7 +384,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-2-1"><span class="nav-number">1.</span> <span class="nav-text">2021-2-1</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2021-2-2"><span class="nav-number">2.</span> <span class="nav-text">2021-2-2</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#ubuntu16-04%E5%8D%87%E7%BA%A7gcc%E5%92%8Cg"><span class="nav-number">1.</span> <span class="nav-text">ubuntu16.04升级gcc和g++</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%8B%E8%BD%BD"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E9%BB%98%E8%AE%A4%E9%80%89%E9%A1%B9"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">配置默认选项</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%9F%A5%E7%9C%8B%E5%B7%B2%E5%AE%89%E8%A3%85%E7%9A%84%E7%89%88%E6%9C%AC%E4%BF%A1%E6%81%AF"><span class="nav-number">1.0.0.3.</span> <span class="nav-text">查看已安装的版本信息</span></a></li></ol></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -400,20 +400,20 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">10</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">9</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
